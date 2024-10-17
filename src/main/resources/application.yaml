@@ -4,8 +4,8 @@ spring:
   datasource:
     url: jdbc:h2:file:./data/demo
     driverClassName: org.h2.Driver
-    username: sa
-    password:
+    username: admin
+    password: admin
   jpa:
     hibernate:
       ddl-auto: update
