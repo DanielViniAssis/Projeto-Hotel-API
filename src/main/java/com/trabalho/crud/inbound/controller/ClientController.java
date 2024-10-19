@@ -26,8 +26,7 @@ public class ClientController {
   private final ClientService clientService;
 
   /**
-   * Realiza a busca a partir do ID do Cliente
-   * @param id id do cliente a ser buscado
+   * Retorna uma lista com todos os Clientes
    * @return
    */
 
@@ -35,22 +34,37 @@ public class ClientController {
   public ResponseEntity<List<ClientDto>> getAllClients() {
     return ResponseEntity.ok(clientService.findAll());
   }
-
+  /**
+   * Realiza a busca a partir do ID do Cliente
+   * @param id id do Cliente a ser buscado
+   * @return
+   */
   @GetMapping("/{id}")
   public ResponseEntity<ClientDto> getClientById(@PathVariable Long id) {
     return ResponseEntity.ok(clientService.findById(id));
   }
-
+  /**
+   * Realiza a criação de um Cliente
+   * @return
+   */
   @PostMapping
   public ResponseEntity<ClientDto> createClient(@RequestBody ClientDto clientDTO) {
     return ResponseEntity.status(HttpStatus.CREATED).body(clientService.save(clientDTO));
   }
-
+  /**
+   * Realiza uma atualização em um cliente a partir do id
+   * @param id id do Cliente a ser alterado
+   * @return
+   */
   @PutMapping("/{id}")
   public ResponseEntity <ClientDto> updateClient(@PathVariable Long id, @RequestBody ClientDto clientDTO) {
     return ResponseEntity.ok(clientService.update(id, clientDTO));
   }
-
+  /**
+   * Realiza a deleção de um cliente a partir do ID
+   * @param id id do Cliente a ser deletado
+   * @return
+   */
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
     clientService.deleteById(id);
