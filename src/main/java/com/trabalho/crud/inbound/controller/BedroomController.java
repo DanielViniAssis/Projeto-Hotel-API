@@ -27,7 +27,7 @@ public class BedroomController {
 
   /**
    *  Retorna uma lista com todos os quartos
-   * @return
+   * @return Quartos Correspondentes
   */
 
   @GetMapping
@@ -35,9 +35,9 @@ public class BedroomController {
     return ResponseEntity.ok(bedroomService.findAll());
   }
   /**
-     * Realiza a busca a partir do ID do Funcionário
-     * @param id id do Funcionário a ser buscado
-     * @return
+     * Realiza a busca a partir do ID do Quarto
+     * @param id id do Quarto a ser buscado
+     * @return Quarto correspondente
   */
   @GetMapping("/{id}")
   public ResponseEntity<BedroomDto> getBedroomById(@PathVariable Long id) {
@@ -45,7 +45,7 @@ public class BedroomController {
   }
   /**
      * Realiza a criação de um quarto
-     * @return
+     * @return Usuário criado
      */
   @PostMapping
   public ResponseEntity<BedroomDto> createBedroom(@RequestBody BedroomDto bedroomDTO) {
@@ -54,7 +54,7 @@ public class BedroomController {
   /**
    * Realiza uma atualização sobre um quarto a partir do id
    * @param id id do Quarto a ser atualizado
-   * @return
+   * @return Quarto Atualizado
    */
   @PutMapping("/{id}")
   public ResponseEntity <BedroomDto> updateBedroom(@PathVariable Long id, @RequestBody BedroomDto bedroomDTO) {
@@ -63,7 +63,7 @@ public class BedroomController {
   /**
    * Realiza a deleção de um quarto a partir do id
    * @param id id do Quarto a ser deletado
-   * @return
+   * @return Quarto Deletado
    */
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteBedroom(@PathVariable Long id) {

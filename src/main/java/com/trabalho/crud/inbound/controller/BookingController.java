@@ -27,7 +27,7 @@ public class BookingController {
 
   /**
    * Retorna uma lista de todas as reservas
-   * @return
+   * @return Reservas Correspondentes
    */
 
   @GetMapping
@@ -37,7 +37,7 @@ public class BookingController {
   /**
      * Realiza a busca a partir do ID da reserva
      * @param id id da reserva a ser buscada
-     * @return
+     * @return Reserva Correspondente
      */
   @GetMapping("/{id}")
   public ResponseEntity<BookingDto> getBookingById(@PathVariable Long id) {
@@ -45,7 +45,7 @@ public class BookingController {
   }
   /**
    * Realiza a criação de uma reserva
-   * @return
+   * @return Reserva Criada
    */
   @PostMapping
   public ResponseEntity<BookingDto> createBooking(@RequestBody BookingDto bookingDTO) {
@@ -54,7 +54,7 @@ public class BookingController {
   /**
    * Realiza uma atualização de uma reserva a partir do id
    * @param id id da reserva a ser alterada
-   * @return
+   * @return Reserva Atualizada
    */
   @PutMapping("/{id}")
   public ResponseEntity <BookingDto> updateBooking(@PathVariable Long id, @RequestBody BookingDto bookingDTO) {
@@ -63,7 +63,7 @@ public class BookingController {
   /**
    * Realiza a deleção de uma reserva a partir do id
    * @param id id da reserva a ser deletada
-   * @return
+   * @return Reserva Deletada
    */
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteBooking(@PathVariable Long id) {

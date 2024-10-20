@@ -28,7 +28,7 @@ public class EmployeeController {
   /**
    * Retorna uma lista com todos os Funcionários
    * 
-   * @return
+   * @return funcionários Correspondentes
    */
 
   @GetMapping
@@ -40,7 +40,7 @@ public class EmployeeController {
    * Realiza a busca a partir do ID do Funcionário
    * 
    * @param id id do Funcionário a ser buscado
-   * @return
+   * @return funcionário Correspondente
    */
   @GetMapping("/{id}")
   public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
@@ -50,7 +50,7 @@ public class EmployeeController {
   /**
    * Realiza a criação de um Funcionário
    * 
-   * @return
+   * @return funcionário Criado
    */
   @PostMapping
   public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDTO) {
@@ -61,7 +61,7 @@ public class EmployeeController {
    * Realiza uma atualização de um Funcionário a partir do ID
    * 
    * @param id id do Funcionário a ser alterado
-   * @return
+   * @return funcionário Atualizado
    */
   @PutMapping("/{id}")
   public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDto employeeDTO) {
@@ -72,7 +72,7 @@ public class EmployeeController {
    * Realiza a deleção de um Funcionário a partir do ID
    * 
    * @param id id do Funcionário a ser deletado
-   * @return
+   * @return funcionário Deletado
    */
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
