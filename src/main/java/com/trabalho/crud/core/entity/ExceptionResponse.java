@@ -7,8 +7,7 @@ import lombok.Data;
 @Builder
 public class ExceptionResponse {
 
-  private String message;
-
-  private String status;
-
+    private String message;
+    
+    private int status;  
 }

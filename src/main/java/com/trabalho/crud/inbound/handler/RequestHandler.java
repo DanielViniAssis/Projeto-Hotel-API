@@ -11,19 +11,25 @@ import com.trabalho.crud.core.entity.ExceptionResponse;
 @RestControllerAdvice
 public class RequestHandler {
 
-  @ExceptionHandler(Exception.class)
-  protected ResponseEntity<ExceptionResponse> handleException(Exception ex) {
-    final var message = ex.getMessage();
+    @ExceptionHandler(Exception.class)
+    protected ResponseEntity<ExceptionResponse> handleException(Exception ex) {
+        final var message = ex.getMessage();
 
-    return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-        .body(ExceptionResponse.builder().message(message).status(HttpStatus.BAD_REQUEST.toString()).build());
-  }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+            .body(ExceptionResponse.builder()
+                .message(message)
+                .status(HttpStatus.BAD_REQUEST.value()) // Agora passando um int
+                .build());
+    }
 
-  @ExceptionHandler(BusinessException.class)
-  protected ResponseEntity<ExceptionResponse> handleBusinessException(BusinessException ex) {
-    final var message = ex.getMessage();
+    @ExceptionHandler(BusinessException.class)
+    protected ResponseEntity<ExceptionResponse> handleBusinessException(BusinessException ex) {
+        final var message = ex.getMessage();
 
-    return ResponseEntity.status(ex.getStatus())
-        .body(ExceptionResponse.builder().message(message).status(ex.getStatus().toString()).build());
-  }
+        return ResponseEntity.status(ex.getStatus())
+            .body(ExceptionResponse.builder()
+                .message(message)
+                .status(ex.getStatus().value()) // Passando um int
+                .build());
+    }
 }

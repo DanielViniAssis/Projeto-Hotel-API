@@ -33,4 +33,8 @@ public class BusinessException extends RuntimeException {
     return new BusinessException(message, HttpStatus.NOT_FOUND);
   }
 
+//   public int getStatus() {
+//     return this.status.value(); // Retorna o código de status HTTP
+// }
+
 }

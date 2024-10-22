@@ -3,12 +3,12 @@ package com.trabalho.crud.core.dto;
 import lombok.Data;
 
 @Data
-public class UserDto {
+public class EmployeeDto {
 
   private Long id;
 
   private String name;
 
-  private String email;
+  private String position;
 
 }

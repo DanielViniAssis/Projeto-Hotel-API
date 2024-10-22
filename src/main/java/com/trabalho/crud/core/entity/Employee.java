@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "\"USER\"")
-public class User {
+@Table(name = "\"EMPLOYEE\"")
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,6 @@ public class User {
 
 	private String name;
 
-	private String email;
+	private String position;
 
 }
