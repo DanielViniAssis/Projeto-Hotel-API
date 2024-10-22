@@ -7,6 +7,9 @@ import com.trabalho.crud.core.entity.Bedroom;
 
 @Mapper(componentModel = "spring")
 public interface BedroomMapper {
-    Bedroom toEntity(BedroomDto dto);
-    BedroomDto toDto(Bedroom entity);
+
+  Bedroom toEntity(BedroomDto dto);
+
+  BedroomDto toDto(Bedroom entity);
+  
 }

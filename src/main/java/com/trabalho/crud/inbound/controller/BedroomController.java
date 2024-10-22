@@ -26,52 +26,44 @@ public class BedroomController {
   private final BedroomService bedroomService;
 
   /**
-   * Retorna uma lista com todos os quartos
-   * 
+   *  Retorna uma lista com todos os quartos
    * @return Quartos Correspondentes
-   */
+  */
+
   @GetMapping
   public ResponseEntity<List<BedroomDto>> getAllBedrooms() {
     return ResponseEntity.ok(bedroomService.findAll());
   }
-
   /**
-   * Realiza a busca a partir do ID do Quarto
-   * 
-   * @param id id do Quarto a ser buscado
-   * @return Quarto correspondente
-   */
+     * Realiza a busca a partir do ID do Quarto
+     * @param id id do Quarto a ser buscado
+     * @return Quarto correspondente
+  */
   @GetMapping("/{id}")
   public ResponseEntity<BedroomDto> getBedroomById(@PathVariable Long id) {
     return ResponseEntity.ok(bedroomService.findById(id));
   }
-
   /**
-   * Realiza a criação de um quarto
-   * 
-   * @return Quarto criado
-   */
+     * Realiza a criação de um quarto
+     * @return Usuário criado
+     */
   @PostMapping
   public ResponseEntity<BedroomDto> createBedroom(@RequestBody BedroomDto bedroomDTO) {
     return ResponseEntity.status(HttpStatus.CREATED).body(bedroomService.save(bedroomDTO));
   }
-
   /**
    * Realiza uma atualização sobre um quarto a partir do id
-   * 
    * @param id id do Quarto a ser atualizado
    * @return Quarto Atualizado
    */
   @PutMapping("/{id}")
-  public ResponseEntity<BedroomDto> updateBedroom(@PathVariable Long id, @RequestBody BedroomDto bedroomDTO) {
+  public ResponseEntity <BedroomDto> updateBedroom(@PathVariable Long id, @RequestBody BedroomDto bedroomDTO) {
     return ResponseEntity.ok(bedroomService.update(id, bedroomDTO));
   }
-
   /**
    * Realiza a deleção de um quarto a partir do id
-   * 
    * @param id id do Quarto a ser deletado
-   * @return Resposta vazia
+   * @return Quarto Deletado
    */
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteBedroom(@PathVariable Long id) {

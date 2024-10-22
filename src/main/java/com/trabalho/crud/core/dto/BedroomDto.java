@@ -4,10 +4,11 @@ import lombok.Data;
 
 @Data
 public class BedroomDto {
-    private Long id; 
 
-    private String number; 
+  private Long id;
 
-    private String type;
+  private String number;
+
+  private String type;
 
 }
