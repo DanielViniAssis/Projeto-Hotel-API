@@ -36,4 +36,48 @@ class BookingServiceTest {
 
     assertEquals(1, allBookings.size());
   }
+
+  
+  @Test
+  @DisplayName("Criar Reserva")
+  void testCriarQuarto() {
+      BookingtoDTO newBookingtoDTO = new BookingtoDTO();
+      newBookingtoDTO.setCheckIn("10-09-2024");
+      newBookingtoDTO.setCheckOut("10-10-2024");
+      newBookingtoDTO.setPayMethod("Credit Card");
+      newBookingtoDTO.setClientName("Jairo");
+      newBookingtoDTO.setClientEmail("jairo@test");
+
+      var bedroomNew = service.save(newBookingtoDTO);
+
+      assertNotNull(bedroomNew);
+      assertEquals("Bedroom 4", bedroomNew.getNumber());
+  }
+
+  @Test
+  @DisplayName("Atualizar Quarto")
+  void testAtualizarQuarto() {
+      var existingBedroom = repository.findAll().get(0);
+      assertNotNull(existingBedroom);
+
+      BedroomDto updatedBedroomDto = new BedroomDto();
+      updatedBedroomDto.setId(existingBedroom.getId());
+      updatedBedroomDto.setNumber("Bedroom 1 Updated");
+      updatedBedroomDto.setType("Suíte Atualizada");
+
+      var updatedBedroom = service.update(existingBedroom.getId(), updatedBedroomDto);
+
+      assertNotNull(updatedBedroom);
+      assertEquals("Bedroom 1 Updated", updatedBedroom.getNumber());
+  }
+
+  @Test
+  @DisplayName("Buscar Quarto Inexistente")
+  void testBuscarQuartoInexistente() {
+      assertThrows(BusinessException.class, () -> {
+          service.findById(999L); // Assuming 999 does not exist
+      });
+  }
+
+
 }
